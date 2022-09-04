@@ -1,0 +1,23 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+.roundedBorder{ 
+    border: 1px solid rgba(120, 130, 164, 0.3);
+}
+.bottomBorder{
+    border-bottom: 1px solid rgba(120, 130, 164, 0.3);
+}
+.table-head-rounded tr th:first-child{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.table-head-rounded tr th:last-child{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.bg-commonPink{
+    background-color: #F46177;
+}

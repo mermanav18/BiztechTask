@@ -1,0 +1,9 @@
+.bg-actionButton{
+    @apply p-2 cursor-pointer rounded-lg;
+    background-color: #f1f3f6;
+}
+.profile-table{
+    tr:last-child{
+        border-bottom: none;
+    }
+}

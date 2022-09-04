@@ -1,0 +1,118 @@
+<section class="m-4">
+    <div class="w-2/4 roundedBorder rounded-lg">
+        <!-- Header -->
+        <div class="bg-Heading relative h-14 flex items-center pl-4">
+            <label class="pl-4">
+                <span class="text-sm 2xl:text-base font-semibold">Add / Edit Profile</span>
+            </label>
+        </div>
+        
+        <!-- Profile Form -->
+        <div class="mx-4 my-5">
+            <form [formGroup]="profileForm" (ngSubmit)="!userId?addUpdateProfile():editProfile()" autocomplete="off">
+                <!-- Firstname -->
+                <div>
+                    <div class="itm-row roundedBorder">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Enter First Name" class="input" 
+                            name="firstName" formControlName="firstName" />
+                    </div>
+                    <div *ngIf="form['firstName'].invalid && (form['firstName'].dirty || form['firstName'].touched)"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="form['firstName'].errors?.['required']">
+                            <span class="forms-validationInputCode_error">First Name is required.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lastname -->            
+                <div>
+                    <div class="itm-row roundedBorder mt-4">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Enter First Name" class="input"
+                            name="lastName" formControlName="lastName" />
+                    </div>
+                    <div *ngIf="form['lastName'].invalid && (form['lastName'].dirty || form['lastName'].touched)"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="form['lastName'].errors?.['required']">
+                            <span class="forms-validationInputCode_error">Last Name is required.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <div class="itm-row roundedBorder mt-4">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter Email Address" class="input" 
+                            name="emailId" formControlName="emailId" />
+                    </div>
+                    <div *ngIf="form['emailId'].invalid && (form['emailId'].dirty || form['emailId'].touched)"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="form['emailId'].errors?.['required']">
+                            <span class="forms-validationInputCode_error">Email Address is required.</span>
+                        </div>
+                        <div *ngIf="form['emailId'].errors?.['emailId'] || form['emailId'].errors?.['pattern']">
+                            Enter valid email address
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gender -->
+                <div>
+                    <div class="itm-row roundedBorder mt-4">
+                        <label>Gender</label>
+                        <select name="gender" formControlName="gender" class="input select-input">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div *ngIf="form['gender'].invalid && (form['gender'].dirty || form['gender'].touched)"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="form['gender'].errors?.['required']">
+                            <span class="forms-validationInputCode_error">Gender is required.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Date Of Birth -->
+                <div>
+                    <div class="itm-row roundedBorder mt-4">
+                        <label>Date Of Birth</label>
+                        <input placeholder="Select Date Of Birth" class="input pr-4" type="text" formControlName="dob" 
+                            onfocus="(this.type='date')" onblur="(this.type='text')" />
+                    </div>
+                    <div *ngIf="form['dob'].invalid && (form['dob'].dirty || form['dob'].touched)"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="form['dob'].errors?.['required']">
+                            <span class="forms-validationInputCode_error">Date of birth is required.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Upload Profile Icon -->
+                <div>
+                    <div class="itm-row roundedBorder mt-4">
+                        <label>Upload Image</label>
+                        <input type="file" placeholder="Select File" class="input upload-input" accept=".png"
+                            name="profileIcon" formControlName="profileIcon" (change)="getFileDetails($event)" />
+                    </div>
+                    <div *ngIf="form['profileIcon'].invalid && (form['profileIcon'].dirty || form['profileIcon'].touched)"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="form['profileIcon'].errors?.['required']">
+                            <span class="forms-validationInputCode_error">This field is required.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button *ngIf="!userId" class="mt-4 w-44 py-3 text-white text-sm bg-commonPink flex justify-center rounded-lg">
+                    Add Profile
+                </button>
+                <button *ngIf="userId" class="mt-4 w-44 py-3 text-white text-sm bg-commonPink flex justify-center rounded-lg">
+                    Update Profile
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

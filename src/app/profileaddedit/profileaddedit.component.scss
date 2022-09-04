@@ -1,0 +1,24 @@
+.bg-Heading{
+  background-color: #f5f7fb;
+  border-radius: 10px 10px 0 0;
+}
+// Common input
+.itm-row{
+    position: relative;
+    @apply rounded-lg;
+    .input{
+      @apply w-full h-12 pl-4 text-sm rounded-lg;
+    }
+    label{
+        @apply left-3 px-1 absolute z-10 text-sm font-semibold;
+        top: -10px;
+        background-color: #fff;
+    }
+    .select-input{
+      outline: none;
+      width: 97%;
+    }
+    .upload-input{
+      padding-top: 15px
+    }
+  }
